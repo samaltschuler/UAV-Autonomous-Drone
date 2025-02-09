@@ -1,0 +1,35 @@
+sudo apt install raspi-config
+
+sudo raspi-config
+
+-Interface, Serial, no, yes, OK, Finish, Reboot
+
+sudo nano /boot/firmware/config.txt
+
+-check last line (expect enable_uart=1)
+
+ls -l /dev/tty*
+
+-check ttyS0 says dialout
+
+sudo apt install screen
+
+sudo screen /dev/ttyS0 115200
+
+sudo apt install python3-pip
+
+pip install pyserial
+
+sudo apt purge bluez
+
+sudo apt autoremove
+
+sudo nano /boot/firmware/config.txt
+
+-add the following line at the end of file and save
+
+dtoverlay=miniuart-bt
+
+sudo screen /dev/ttyAMA0 115200
+
+sudo nano LidarScript.py
